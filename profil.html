@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta tag untuk karakter dan responsif -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Gastiadi</title>
+    <!-- Link ke file CSS -->
+    <link rel="stylesheet" href="profil.css">
+    <!-- Link untuk icon social media dari FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Container utama -->
+    <div class="container">
+        <!-- Bagian profil -->
+        <div class="profile-section">
+            <!-- Foto profil dengan border bulat -->
+            <img src="file:///C:/Users/Rizal/Downloads/yuta-okkotsu-katana-3840x2160-14591.jpg" alt="Foto Profil Gastiadi" class="profile-photo">
+            
+            <!-- Nama -->
+            <h1 class="name">Gastiadi</h1>
+            
+            <!-- Deskripsi singkat -->
+            <p class="description">
+                Mahasiswa IT yang tertarik dengan Web Development, 
+                UI/UX Design, dan Mobile App Development.
+            </p>
+        </div>
+
+        <!-- Bagian tombol social media -->
+        <div class="buttons-section">
+            <button id="theme-toggle" class="btn btn-theme" type="button">
+                <i class="fas fa-moon"></i> Mode Gelap
+            </button>
+
+            <!-- Tombol Instagram -->
+            <a href="https://www.instagram.com/re_zall22?igsh=eXFtemVvMDEwbm10" class="btn btn-instagram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            
+            <!-- Tombol GitHub -->
+            <a href="https://github.com/gastiadi" class="btn btn-github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            
+            <!-- Tombol WhatsApp -->
+            <a href="https://wa.me/6281234567890" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('theme');
+
+        const applyTheme = (theme) => {
+            document.body.classList.toggle('light-theme', theme === 'light');
+            themeToggleBtn.innerHTML = theme === 'light'
+                ? '<i class="fas fa-moon"></i> Mode Gelap'
+                : '<i class="fas fa-sun"></i> Mode Terang';
+            localStorage.setItem('theme', theme);
+        };
+
+        const initialTheme = savedTheme || 'dark';
+        applyTheme(initialTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const nextTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+            applyTheme(nextTheme);
+        });
+    </script>
+</body>
+</html>
